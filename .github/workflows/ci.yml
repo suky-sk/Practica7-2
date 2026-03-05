@@ -12,7 +12,7 @@ name: CI - Validacion en Pull Request
 # TODO 1: Sustituye ____ por el evento correcto.
 # Pregunta: ¿Cuál se activa cuando alguien ABRE un Pull Request?
 on:
-  ____:
+  pull_request:
     branches: [ main ]
 
 jobs:
