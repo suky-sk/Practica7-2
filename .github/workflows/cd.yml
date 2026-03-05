@@ -34,4 +34,5 @@ jobs:
           # PISTA: Los archivos (index.html, style.css) están en la raíz del proyecto.
           # ¿Cómo se referencia el directorio actual en Linux?
           publish_dir: .
+
           publish_branch: gh-pages
