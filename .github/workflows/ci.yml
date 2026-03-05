@@ -1,0 +1,55 @@
+# =============================================================
+# WORKFLOW DE INTEGRACIÓN CONTINUA (CI)
+# =============================================================
+# Este workflow se ejecuta cuando se abre un Pull Request.
+# Valida que los archivos del proyecto sean correctos.
+#
+# TODO: Completa las líneas marcadas con ____ para que funcione.
+# =============================================================
+
+name: CI - Validacion en Pull Request
+
+# TODO 1: Sustituye ____ por el evento correcto.
+# Pregunta: ¿Cuál se activa cuando alguien ABRE un Pull Request?
+on:
+  ____:
+    branches: [ main ]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar que existe index.html
+        run: |
+          if test -f index.html; then
+            echo "✅ index.html encontrado"
+          else
+            echo "❌ index.html NO encontrado"
+            exit 1
+          fi
+
+      - name: Verificar que existe style.css
+        run: |
+          if test -f style.css; then
+            echo "✅ style.css encontrado"
+          else
+            echo "❌ style.css NO encontrado"
+            exit 1
+          fi
+
+      - name: Verificar que el nombre ha sido personalizado
+        run: |
+          # Este paso comprueba que has cambiado "TU_NOMBRE" en index.html.
+          # Si aún aparece "TU_NOMBRE", el CI fallará.
+          if grep -q "TU_NOMBRE" index.html; then
+            echo "❌ Aún no has cambiado TU_NOMBRE en index.html"
+            exit 1
+          else
+            echo "✅ Nombre personalizado correctamente"
+          fi
+
+      - name: Todos los checks superados
+        run: echo "🎉 CI superado! Tu Pull Request está listo para fusionar."
