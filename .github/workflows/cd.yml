@@ -33,5 +33,6 @@ jobs:
           # TODO 3: Sustituye ____ por el directorio que contiene los archivos a publicar.
           # PISTA: Los archivos (index.html, style.css) están en la raíz del proyecto.
           # ¿Cómo se referencia el directorio actual en Linux?
-          publish_dir: ./
+          publish_dir: .
+
           publish_branch: gh-pages
