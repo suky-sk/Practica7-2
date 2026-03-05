@@ -12,7 +12,7 @@ name: CD - Despliegue a GitHub Pages
 # TODO 1: Sustituye ____ por el evento correcto.
 # Pregunta: Cuando fusionas un PR, ¿qué evento se produce en la rama main?
 on:
-  ____:
+  push:
     branches: [ main ]
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
     permissions:
       # TODO 2: Sustituye ____ por el permiso correcto.
       # El workflow necesita CREAR la rama gh-pages.
-      contents: ____
+      contents: write
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v4
@@ -33,5 +33,5 @@ jobs:
           # TODO 3: Sustituye ____ por el directorio que contiene los archivos a publicar.
           # PISTA: Los archivos (index.html, style.css) están en la raíz del proyecto.
           # ¿Cómo se referencia el directorio actual en Linux?
-          publish_dir: ____
+          publish_dir: ./
           publish_branch: gh-pages
